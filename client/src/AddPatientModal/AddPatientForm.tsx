@@ -3,7 +3,7 @@ import { Grid, Button } from "semantic-ui-react";
 import { Field, Formik, Form } from "formik";
 
 import { TextField, SelectField, GenderOption } from "./FormField";
-import { Gender, Patient, HealthCheckEntry} from "../types";
+import { Gender, Patient, HealthCheckEntry } from "../types";
 /*
  * use type Patient, but omit id and entries,
  * because those are irrelevant for new patient object.
@@ -18,7 +18,7 @@ interface Props {
 const genderOptions: GenderOption[] = [
   { value: Gender.Male, label: "Male" },
   { value: Gender.Female, label: "Female" },
-  { value: Gender.Other, label: "Other" }
+  { value: Gender.Other, label: "Other" },
 ];
 
 export interface EntryProps {
@@ -27,7 +27,7 @@ export interface EntryProps {
   patiendId: string;
 }
 
-export const AddPatientForm = ({ onSubmit, onCancel } : Props ) => {
+export const AddPatientForm = ({ onSubmit, onCancel }: Props) => {
   return (
     <Formik
       initialValues={{
@@ -35,10 +35,10 @@ export const AddPatientForm = ({ onSubmit, onCancel } : Props ) => {
         ssn: "",
         dateOfBirth: "",
         occupation: "",
-        gender: Gender.Other
+        gender: Gender.Other,
       }}
       onSubmit={onSubmit}
-      validate={values => {
+      validate={(values) => {
         const requiredError = "Field is required";
         const errors: { [field: string]: string } = {};
         if (!values.name) {
@@ -83,11 +83,7 @@ export const AddPatientForm = ({ onSubmit, onCancel } : Props ) => {
               name="occupation"
               component={TextField}
             />
-            <SelectField
-              label="Gender"
-              name="gender"
-              options={genderOptions}
-            />
+            <SelectField label="Gender" name="gender" options={genderOptions} />
             <Grid>
               <Grid.Column floated="left" width={5}>
                 <Button type="button" onClick={onCancel} color="red">
