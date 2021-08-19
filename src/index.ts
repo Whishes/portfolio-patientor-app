@@ -16,7 +16,7 @@ app.get("/api/ping", (_req, res) => {
   res.send("pong");
 });
 
-app.use(express.static(path.join(__dirname, "../client/build")));
+app.use(express.static(path.join(__dirname, ".../client/build")));
 app.use("/api/diagnoses", diagnoseRouter);
 app.use("/api/patients", patientRouter);
 

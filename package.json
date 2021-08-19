@@ -11,8 +11,9 @@
     "tsc": "tsc",
     "dev": "ts-node-dev src index.ts",
     "lint": "eslint --ext .ts .",
-    "start": "tsc && node build/src/index.js",
+    "start": "node build/src/index.js",
     "build": "react-scripts build",
+    "postinstall": "tsc",
     "heroku-postbuild": "cd client && npm install && npm run build",
     "start:frontend": "cd client && npm run start"
   },
